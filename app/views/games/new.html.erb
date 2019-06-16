@@ -1,0 +1,16 @@
+<div class="d-flex flex-column">
+<h1>New Game</h1>
+<div class="d-flex">
+<% @letters.each do |letter|  %>
+  <div class="btn btn-primary m-1"> <%= letter  %></div>
+  <% end %>
+</div>
+<p>What is the longest word you can find?</p>
+
+<form action="/score" method="get">
+  <input type="hidden" value="<%= Time.now %>" name='start_time'>
+  <input type="hidden" value="<%= @letters %>" name='grid'>
+  <input type="text" name="word">
+  <input type="submit" value="Play">
+</form>
+</div>
